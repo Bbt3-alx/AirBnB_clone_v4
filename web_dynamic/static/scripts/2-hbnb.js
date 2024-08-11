@@ -13,4 +13,15 @@ $(document).ready(function() {
 		$('.amenitys h4').text(checkedAmenities.join(','));
 
 	});
+	
+	$.ajax({
+		url: "http://0.0.0.0:5001/api/v1/status/",
+		method: "GET",
+		success: function() {
+			$("div#api_status").addClass("available");
+		},
+		error: function() {
+			$("div#api_status").removeClass("available");
+		}
+	});
 });
