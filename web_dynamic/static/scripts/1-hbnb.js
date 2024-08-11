@@ -1,7 +1,7 @@
 $(document).ready(function() {
-	let checkedAmenities = [];
+	let checkedAmenity = [];
 
-	$('.amenities input[type="checkbox"]').change(function() {
+	$('.amenities inpu[type="checkbox"]').change(function() {
 		let amenityId = $(this).attr('data-id');
 		let amenityName = $(this).attr('data-name');
 
@@ -12,16 +12,5 @@ $(document).ready(function() {
 		}
 		$('.amenities h4').text(checkedAmenities.join(','));
 
-	});
-	
-	$.ajax({
-		url: "http://0.0.0.0:5001/api/v1/status/",
-		method: "GET",
-		success: function() {
-			$("div#api_status").addClass("available");
-		},
-		error: function() {
-			$("div#api_status").removeClass("available");
-		}
 	});
 });
